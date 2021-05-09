@@ -13,8 +13,15 @@ class IssueReproActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = IssueReproActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Reproduce any issues here.
+
         requestPermission()
+
+        // Setting the view
+        val loaderView = findViewById<CustomLoaderView>(R.id.animation_view)
+        loaderView.setFoo(true)
+        loaderView.playAnimation()
+    }
+
     // Bare bone implementation of requesting permission
     private fun requestPermission() {
         if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PERMISSION_DENIED) {
